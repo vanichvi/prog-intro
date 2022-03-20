@@ -14,14 +14,7 @@ public class Tournament {
         this.players = players;
 
         matches = new int[players.size()][players.size()];
-//        printMatches(players);
     }
-
-//    public void printMatches(List<Player> players) {//FIX
-//        for (int i = 0; i < players.size(); i++) {
-//            System.out.println(Arrays.toString(matches[i]));
-//        }
-//    }
 
     public void play(boolean log) {
         for (int i = 0; i < players.size(); i++) {
@@ -38,7 +31,6 @@ public class Tournament {
     private void playDuel(int i, int j, boolean log) {
         TwoPlayerGame game = new TwoPlayerGame(board, players.get(i), players.get(j));
         int result = game.play(log);
-//        System.out.println(result);
 
         matches[i][j] = 1;
         matches[j][i] = 1;
@@ -46,21 +38,15 @@ public class Tournament {
         switch (result) {
             case 1:
                 scoreTable[i] += 3;
-//                System.err.println("X player won round");
                 break;
             case 2:
                 scoreTable[j] += 3;
-//                System.err.println("O player won round");
                 break;
             case 0:
                 scoreTable[i] += 1;
                 scoreTable[j] += 1;
-//                System.err.println("Draw");
                 break;
         }
-//        System.out.println(Arrays.toString(scoreTable));
-//        System.out.println();
-//        printMatches(players);
         board.clear();
     }
 
